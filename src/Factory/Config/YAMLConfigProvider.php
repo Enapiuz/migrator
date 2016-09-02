@@ -2,8 +2,13 @@
 namespace Migrator\Factory\Config;
 
 use RuntimeException;
+use Symfony\Component\Yaml\Yaml;
 
-class JSONConfigProvider extends BaseFileConfigProvider
+/**
+ * Class YAMLConfigProvider
+ * @package Migrator\Factory\Config
+ */
+class YAMLConfigProvider extends BaseFileConfigProvider
 {
     /**
      * @param string $db_name
@@ -14,7 +19,7 @@ class JSONConfigProvider extends BaseFileConfigProvider
     {
         $this->validateFilePath();
 
-        $config = json_decode(file_get_contents($this->file), true);
+        $config = Yaml::parse(file_get_contents($this->file));
         if (isset($config[$db_name]) && is_array($config[$db_name])) {
             return $config[$db_name];
         }

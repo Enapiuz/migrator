@@ -3,8 +3,9 @@
 [![Latest Stable Version](https://img.shields.io/packagist/v/lazypdo/migrator.svg)](https://packagist.org/packages/lazypdo/migrator)
 [![Travis Build](https://travis-ci.org/lazypdo/migrator.svg?branch=master)](https://travis-ci.org/lazypdo/migrator)
 [![SensioLabs Insight](https://img.shields.io/sensiolabs/i/c44976d6-9726-4aae-a423-865211cbc5b2.svg)](https://insight.sensiolabs.com/projects/c44976d6-9726-4aae-a423-865211cbc5b2)
+[![Coverage Status](https://coveralls.io/repos/github/lazypdo/migrator/badge.svg?branch=master)](https://coveralls.io/github/lazypdo/migrator?branch=master)
 
-The goal of this project is to create a simple yet modular database migration tool 
+The goal of this project is to create a simple yet modular database schema migration tool 
 which would be easy to integrate with your project or to use standalone.
 
 ## Installation
@@ -62,7 +63,7 @@ either be in the current directory or specified using `--config` option:
 
 `./migrator --config=/path/to/migrator.php status`
 
-It is also possible to use json configs.
+It is also possible to use json and yaml configs.
 
 Migrator has just two commands: _status_ and _migrate_.
 
@@ -76,7 +77,7 @@ range: the minimal and maximum version possible to migrate to.
 ### Migrate
 Migrates the database to the given target version.
 
-`./migrator my_database migrate <version>`
+`./migrator my_database migrate [version]`
 
 * _version_: target version. If omitted, the highest possible version will be used.
 
